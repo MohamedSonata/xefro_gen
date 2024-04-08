@@ -57,9 +57,9 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
       final flag = coreChecker.firstAnnotationOfExact(field)?.getField('flag')?.toStringValue() ?? '';
   
       // Generate command options based on variables
-      buffer.writeln('    if (instance.${field.name} != null) {');
-      buffer.writeln('  //    options.add("$flag${flagValue ?? " \${instance.${field.name}}"}");');
-      buffer.writeln('    }');
+      // buffer.writeln('    if (instance.${field.name} != null) {');
+      // buffer.writeln('  //    options.add("$flag${flagValue ?? " \${instance.${field.name}}"}");');
+      // buffer.writeln('    }');
    
     }
       buffer.writeln(" return 'scrcpy \${options.join(' ')}';");
