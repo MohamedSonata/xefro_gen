@@ -39,9 +39,9 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
  final className = visitor.className;
 
   buffer.writeln('// Command Flags Method');
-//  buffer.writeln('extension ScrcpyCommandModelExtensions on $className {');
-//     buffer.writeln('  String toCommand($className instance) {');
-//     buffer.writeln('    List<String> options = [];');
+ buffer.writeln('extension ScrcpyCommandModelExtensions on $className {');
+    buffer.writeln('  String toCommand($className instance) {');
+    buffer.writeln('    List<String> options = [];');
 
     // Iterate over the fields of the class
     for (var field in element.fields) {
@@ -57,14 +57,14 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
       final flag = coreChecker.firstAnnotationOfExact(field)?.getField('flag')?.toStringValue() ?? '';
   
       // Generate command options based on variables
-      // buffer.writeln('    if (instance.${field.name} != null) {');
-      // buffer.writeln('  //    options.add("$flag${flagValue ?? " \${instance.${field.name}}"}");');
-      // buffer.writeln('    }');
+      buffer.writeln('    if (instance.${field.name} != null) {');
+      buffer.writeln('  //    options.add("$flag${flagValue ?? " \${instance.${field.name}}"}");');
+      buffer.writeln('    }');
    
     }
-  //     buffer.writeln(" return 'scrcpy \${options.join(' ')}';");
-  // buffer.writeln('}');
-  // buffer.writeln('}');
+      buffer.writeln(" return 'scrcpy \${options.join(' ')}';");
+  buffer.writeln('}');
+  buffer.writeln('}');
   buffer.writeln("//sssssssssssssss");
 
     return buffer.toString();
