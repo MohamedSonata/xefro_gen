@@ -58,7 +58,7 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
   
       // Generate command options based on variables
       buffer.writeln('    if (instance.${field.name} != null) {');
-      buffer.writeln('  //    options.add("$flag${flagValue ?? " \${instance.${field.name}}"}");');
+      buffer.writeln('          options.add("$flag${flagValue ?? " \${instance.${field.name}}"}");');
       buffer.writeln('    }');
    
     }
