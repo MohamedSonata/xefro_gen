@@ -39,9 +39,9 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
  final className = visitor.className;
 
   buffer.writeln('// Command Flags Method');
- buffer.writeln('extension ScrcpyCommandModelExtensions on $className {');
-    buffer.writeln('  String toCommand($className instance) {');
-    buffer.writeln('    List<String> options = [];');
+//  buffer.writeln('extension ScrcpyCommandModelExtensions on $className {');
+//     buffer.writeln('  String toCommand($className instance) {');
+//     buffer.writeln('    List<String> options = [];');
 
     // Iterate over the fields of the class
     for (var field in element.fields) {
@@ -62,9 +62,9 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
       // buffer.writeln('    }');
    
     }
-      buffer.writeln(" return 'scrcpy \${options.join(' ')}';");
-  buffer.writeln('}');
-  buffer.writeln('}');
+  //     buffer.writeln(" return 'scrcpy \${options.join(' ')}';");
+  // buffer.writeln('}');
+  // buffer.writeln('}');
   buffer.writeln("//sssssssssssssss");
 
     return buffer.toString();
