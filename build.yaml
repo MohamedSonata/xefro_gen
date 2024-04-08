@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      xefro_gen|xefro_annotations: # generators|annotations: Refers to the simple_generator builder when dealing with files annotated with annotations.
+        enabled: true
+
+builders:
+  xefro_gen:
+    target: ":xefro_gen" # Generator name
+    import: "package:xefro_gen/xefro.dart"
+    builder_factories: ["xefroMethodsGenerator"] # Builder name(BuilderOption) this is a definition
+    build_extensions: { ".dart": ["xefro_generator.g.part"] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"] 
