@@ -57,9 +57,28 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
       final flag = coreChecker.firstAnnotationOfExact(field)?.getField('flag')?.toStringValue() ?? '';
   
       // Generate command options based on variables
-      buffer.writeln('    if (instance.${field.name} != null) {');
-      buffer.writeln('          options.add("$flag${flagValue ==null?"": " \${instance.${field.name}}"}");');
+      if(coreChecker.firstAnnotationOfExact(field)?.getField(field.name)
+        ?.toBoolValue() ==true ||false){
+          if(
+            coreChecker.firstAnnotationOfExact(field)?.getField(field.name)
+        ?.toBoolValue() ==true
+          ){
+            buffer.writeln('    if (instance.${field.name}  == true) {');
+          
+
+      buffer.writeln('          options.add("$flag}" }");');
       buffer.writeln('    }');
+          }else{
+            
+          }
+          
+        }else{
+  buffer.writeln('    if (instance.${field.name} != null) {');
+
+      buffer.writeln('          options.add("$flag${flagValue ?? " \${instance.${field.name}}" }");');
+      buffer.writeln('    }');
+        }
+    
    
     }
       buffer.writeln(" return 'scrcpy \${options.join(' ')}';");
