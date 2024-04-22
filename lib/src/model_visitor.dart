@@ -40,7 +40,7 @@ class ModelVisitor extends SimpleElementVisitor<void> {
         'name': name,
         'defaultValue': defaultValue,
       };
-      print(fields.toString());
+      // print(fields.toString());
     } else {
       // ... existing code for handling fields without annotation ...
     }

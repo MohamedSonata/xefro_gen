@@ -57,8 +57,8 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
       final flag = coreChecker.firstAnnotationOfExact(field)?.getField('flag')?.toStringValue() ?? '';
   
       // Generate command options based on variables
-      if(coreChecker.firstAnnotationOfExact(field)?.getField(field.name)
-        ?.toBoolValue() ==true ||false){
+      if(coreChecker.firstAnnotationOfExact(field)?.getField(field.name).runtimeType ==bool){
+        print("FieldRunTimeStype:${coreChecker.firstAnnotationOfExact(field)?.getField(field.name).runtimeType} ");
           if(
             coreChecker.firstAnnotationOfExact(field)?.getField(field.name)
         ?.toBoolValue() ==true
@@ -69,7 +69,7 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
       buffer.writeln('          options.add("$flag}" }");');
       buffer.writeln('    }');
           }else{
-            
+
           }
           
         }else{
