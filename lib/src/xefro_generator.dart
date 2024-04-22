@@ -65,7 +65,7 @@ print('Field declared type: ${fieldType.getDisplayString(withNullability: true)}
             buffer.writeln('    if (instance.${field.name}  == true) {');
           
 
-      buffer.writeln('          options.add("$flag}" }");');
+      buffer.writeln('          options.add("$flag");');
       buffer.writeln('    }');
          
           
