@@ -71,13 +71,23 @@ print('Field declared type: ${fieldType.getDisplayString(withNullability: true)}
           
         }else{
 
-          // print("FieldName : ${field.name}");
-          //  print("FieldRunTimeStype:${coreChecker.firstAnnotationOfExact(field)?.runtimeType} ");
-  buffer.writeln('    if (instance.${field.name} != null) {');
+          if(flag.contains("=")){
+              buffer.writeln('    if (instance.${field.name} != null) {');
+
+      buffer.writeln('          options.add("$flag${flagValue ?? "\${instance.${field.name}}" }");');
+      buffer.writeln('    }');
+
+          }else{
+              buffer.writeln('    if (instance.${field.name} != null) {');
 
       buffer.writeln('          options.add("$flag${flagValue ?? " \${instance.${field.name}}" }");');
       buffer.writeln('    }');
         }
+          }
+
+          // print("FieldName : ${field.name}");
+          //  print("FieldRunTimeStype:${coreChecker.firstAnnotationOfExact(field)?.runtimeType} ");
+
     
    
     }
