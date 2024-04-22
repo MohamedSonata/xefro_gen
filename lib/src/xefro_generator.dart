@@ -74,7 +74,7 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
           
         }else{
           print("FieldName : ${field.name}");
-           print("FieldRunTimeStype:${coreChecker.firstAnnotationOfExact(field)?.getField(field.name).runtimeType} ");
+           print("FieldRunTimeStype:${coreChecker.firstAnnotationOfExact(field)?.runtimeType} ");
   buffer.writeln('    if (instance.${field.name} != null) {');
 
       buffer.writeln('          options.add("$flag${flagValue ?? " \${instance.${field.name}}" }");');
