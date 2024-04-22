@@ -58,9 +58,7 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
   
       // Generate command options based on variables
       if(coreChecker.firstAnnotationOfExact(field)?.getField(field.name).runtimeType ==bool){
-      final fieldType = field.type;  // Get the declared type of the field
-      print("Field Type: $fieldType");
-print('Field declared type: ${fieldType.getDisplayString(withNullability: true)}');
+ 
           if(
             coreChecker.firstAnnotationOfExact(field)?.getField(field.name)
         ?.toBoolValue() ==true
@@ -75,8 +73,11 @@ print('Field declared type: ${fieldType.getDisplayString(withNullability: true)}
           }
           
         }else{
-          print("FieldName : ${field.name}");
-           print("FieldRunTimeStype:${coreChecker.firstAnnotationOfExact(field)?.runtimeType} ");
+               final fieldType = field.type;  // Get the declared type of the field
+      print("Field Type: $fieldType");
+print('Field declared type: ${fieldType.getDisplayString(withNullability: true)}');
+          // print("FieldName : ${field.name}");
+          //  print("FieldRunTimeStype:${coreChecker.firstAnnotationOfExact(field)?.runtimeType} ");
   buffer.writeln('    if (instance.${field.name} != null) {');
 
       buffer.writeln('          options.add("$flag${flagValue ?? " \${instance.${field.name}}" }");');
