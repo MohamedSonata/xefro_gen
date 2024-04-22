@@ -61,18 +61,13 @@ class XefroGenerator extends GeneratorForAnnotation<XefroGen> {
           final fieldType = field.type;  // Get
        print("Field Type: ${field.type.toString()}");
 print('Field declared type: ${fieldType.getDisplayString(withNullability: true)}');
-          if(
-            coreChecker.firstAnnotationOfExact(field)?.getField(field.name)
-        ?.toBoolValue() ==true
-          ){
+         
             buffer.writeln('    if (instance.${field.name}  == true) {');
           
 
       buffer.writeln('          options.add("$flag}" }");');
       buffer.writeln('    }');
-          }else{
-
-          }
+         
           
         }else{
 
